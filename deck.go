@@ -52,6 +52,9 @@ func (c Card) String() string {
 func New() []Card {
 	var deck []Card
 	for _, s := range suits {
+		if s == Joker {
+			continue
+		}
 		for _, r := range ranks {
 			card := Card{Suit: s, Rank: r}
 			deck = append(deck, card)
