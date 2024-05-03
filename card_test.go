@@ -35,13 +35,13 @@ func TestNew(t *testing.T) {
 		}
 	})
 
-	// t.Run("idk shuffled", func(t *testing.T) {
-	// 	cards := New(Shuffle)
-	// 	exp := Card{Rank: Two, Suit: Diamond}
-	// 	if cards[0] != exp {
-	// 		t.Error("Expected to be random each time. Received:", cards)
-	// 	}
-	// })
+	t.Run("idk shuffled", func(t *testing.T) {
+		cards := New(Shuffle)
+		orig := New()
+		if reflect.DeepEqual(orig, cards) {
+			t.Error("Expected the cards to be shuffled, but they are the same as the original")
+		}
+	})
 
 	t.Run("idk jokers", func(t *testing.T) {
 		cards := New(Jokers(7))
